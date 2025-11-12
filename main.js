@@ -10,7 +10,7 @@ var engine = Engine.create();
 
 // create a renderer
 var render = Render.create({
-    element: document.body,
+    canvas: document.getElementById("mainCanvas"),
     engine: engine
 });
 
@@ -39,3 +39,9 @@ render.canvas.addEventListener("mousedown", (event) => {
     let rectangle = Bodies.rectangle(x, y, width, height);
     Composite.add(engine.world, rectangle);
 });
+
+function onWindowResize() {
+    Render.setSize(render, window.innerWidth * 0.7, window.innerHeight);
+}
+window.addEventListener("resize", onWindowResize);
+onWindowResize();
