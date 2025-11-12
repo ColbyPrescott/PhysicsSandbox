@@ -30,3 +30,12 @@ var runner = Runner.create();
 
 // run the engine
 Runner.run(runner, engine);
+
+render.canvas.addEventListener("mousedown", (event) => {
+    let x = event.offsetX;
+    let y = event.offsetY;
+    let width = 40;
+    let height = 40;
+    let rectangle = Bodies.rectangle(x, y, width, height);
+    Composite.add(engine.world, rectangle);
+});
