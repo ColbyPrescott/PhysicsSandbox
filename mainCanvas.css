@@ -1,5 +1,11 @@
-#mainCanvas {
+#mainCanvas.desktop {
     position: absolute;
     top: 0px;
     left: 30%;
+}
+
+#mainCanvas.mobile {
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
