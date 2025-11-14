@@ -8,7 +8,10 @@ const engine = Engine.create();
 
 const render = Render.create({
     canvas: document.getElementById("mainCanvas"),
-    engine: engine
+    engine: engine,
+    options: {
+        hasBounds: true
+    }
 });
 
 const runner = Runner.create();
