@@ -8,8 +8,8 @@ Composite.add(engine.world, [boxA, boxB, ground]);
 
 
 render.canvas.addEventListener("mousedown", (event) => {
-    let x = event.offsetX;
-    let y = event.offsetY;
+    let x = map(event.offsetX, 0, render.canvas.width, render.bounds.min.x, render.bounds.max.x);
+    let y = map(event.offsetY, 0, render.canvas.height, render.bounds.min.y, render.bounds.max.y);
     let width = 40;
     let height = 40;
     let rectangle = Bodies.rectangle(x, y, width, height);
