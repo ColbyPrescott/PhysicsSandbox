@@ -15,9 +15,14 @@ render.canvas.addEventListener("mousedown", (event) => {
 });
 
 
+function frame() {
+
+}
 
 function main() {
     Render.run(render);
     Runner.run(runner, engine);
 }
+
 main();
+Events.on(runner, "beforeTick", frame);
