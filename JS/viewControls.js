@@ -5,18 +5,17 @@ render.canvas.addEventListener("wheel", (e) => {
     if(e.wheelDeltaY < 0) scaleFactor = 1 / scaleFactor;
 
     // Get current values
+    Input.mouse.setPositionFromEvent(e);
     let scaleX = render.bounds.max.x - render.bounds.min.x;
     let scaleY = render.bounds.max.y - render.bounds.min.y;
-    let mouseX = map(e.offsetX, 0, render.canvas.width, render.bounds.min.x, render.bounds.max.x);
-    let mouseY = map(e.offsetY, 0, render.canvas.height, render.bounds.min.y, render.bounds.max.y);
     let centerX = (render.bounds.min.x + render.bounds.max.x) / 2;
     let centerY = (render.bounds.min.y + render.bounds.max.y) / 2;
 
     // Transform
     scaleX *= scaleFactor;
     scaleY *= scaleFactor;
-    centerX = lerp(centerX, mouseX, 1 - scaleFactor);
-    centerY = lerp(centerY, mouseY, 1 - scaleFactor);
+    centerX = lerp(centerX, Input.mouse.worldX, 1 - scaleFactor);
+    centerY = lerp(centerY, Input.mouse.worldY, 1 - scaleFactor);
 
     // Apply
     render.bounds.min.x = centerX - scaleX / 2;
