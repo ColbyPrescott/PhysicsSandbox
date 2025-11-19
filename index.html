@@ -10,6 +10,31 @@
 
         <span id="sidebar" class="desktop">
             <p class="title">Physics Sandbox</p>
+
+            <label for="action">Action: </label>
+            <select name="action" id="actionDropdown">
+                <option value="add">Add</option>
+                <option value="pan" disabled>Pan</option>
+                <option value="select" disabled>Select</option>
+                <option value="delete" disabled>Delete</option>
+            </select>
+
+            <div id="actionDiv">
+                <div id="actionAddDiv">
+                    <label for="shape">Shape: </label>
+                    <select name="shape">
+                        <option value="rectangle">Rectangle</option>
+                        <option value="circle" disabled>Circle</option>
+                    </select>
+    
+                    <label for="method">Method</label>
+                    <select name="method">
+                        <option value="click">Click</option>
+                        <option value="twoCorners" disabled>Two Corners</option>
+                        <option value="brush" disabled>Brush</option>
+                    </select>
+                </div>
+            </div>
         </span>
 
         <script src="./JS/matter.min.js"></script>
