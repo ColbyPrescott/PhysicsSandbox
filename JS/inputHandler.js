@@ -58,5 +58,6 @@ document.addEventListener("keydown", e => {
 });
 
 document.addEventListener("keyup", e => {
+    if(!Input.keys.hasOwnProperty(e.key)) return;
     Input.keys[e.key].releaseTime = Date.now();
 });
