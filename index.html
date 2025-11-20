@@ -11,30 +11,32 @@
         <span id="sidebar" class="desktop">
             <p class="title">Physics Sandbox</p>
 
-            <label for="action">Action: </label>
-            <select name="action" id="actionDropdown">
-                <option value="add">Add</option>
-                <option value="pan" disabled>Pan</option>
-                <option value="select" disabled>Select</option>
-                <option value="delete" disabled>Delete</option>
-            </select>
+            <div class="setting defaultHidden">
+                <label for="action">Action: </label>
+                <select name="action" id="actionDropdown" onchange="sidebar.rebuild()">
+                    <option value="add">Add</option>
+                    <option value="pan" disabled>Pan</option>
+                    <option value="select" disabled>Select</option>
+                    <option value="delete" disabled>Delete</option>
+                </select>
+            </div>
 
-            <br>
+            <div class="setting defaultHidden">
+                <label for="brush">Brush</label>
+                <select name="brush" id="brushDropdown" onchange="sidebar.rebuild()">
+                    <option value="click">Click</option>
+                    <option value="twoCorners" disabled>Two Corners</option>
+                    <option value="fill" disabled>Fill</option>
+                </select>
+            </div>
 
-            <label for="brush">Brush</label>
-            <select name="brush" id="brushDropdown">
-                <option value="click">Click</option>
-                <option value="twoCorners" disabled>Two Corners</option>
-                <option value="fill" disabled>Brush</option>
-            </select>
-
-            <br>
-
-            <label for="shape">Shape: </label>
-            <select name="shape" id="shapeDropdown">
-                <option value="rectangle">Rectangle</option>
-                <option value="circle">Circle</option>
-            </select>
+            <div class="setting defaultHidden">
+                <label for="shape">Shape: </label>
+                <select name="shape" id="shapeDropdown" onchange="sidebar.rebuild()">
+                    <option value="rectangle">Rectangle</option>
+                    <option value="circle">Circle</option>
+                </select>
+            </div>
         </span>
 
         <script src="./JS/matter.min.js"></script>
@@ -42,7 +44,7 @@
         <script src="./JS/engine.js"></script>
         <script src="./JS/layout.js"></script>
         <script src="./JS/inputHandler.js"></script>
-        <script src="./JS/ui.js"></script>
+        <script src="./JS/sidebar.js"></script>
         <script src="./JS/viewControls.js"></script>
         <script src="./JS/actionAdd.js"></script>
         <script src="./JS/main.js"></script>

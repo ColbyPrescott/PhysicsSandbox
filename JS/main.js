@@ -22,6 +22,8 @@ function frame() {
 function main() {
     Render.run(render);
     Runner.run(runner, engine);
+
+    sidebar.rebuild();
 }
 
 main();

@@ -28,3 +28,11 @@
     font-size: 50px;
     overflow: hidden;
 }
+
+.defaultHidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
