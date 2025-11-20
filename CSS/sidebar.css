@@ -30,9 +30,9 @@
 }
 
 .defaultHidden {
-    visibility: hidden;
+    display: none;
 }
 
 .visible {
-    visibility: visible;
+    display: revert;
 }
