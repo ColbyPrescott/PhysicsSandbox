@@ -1,6 +1,7 @@
 const Engine = Matter.Engine;
 const Render = Matter.Render;
 const Runner = Matter.Runner;
+const Body = Matter.Body;
 const Bodies = Matter.Bodies;
 const Composite = Matter.Composite;
 const Events = Matter.Events;
