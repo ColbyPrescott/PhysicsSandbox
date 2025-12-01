@@ -7,17 +7,19 @@ const sidebar = {
     heightInput: document.getElementById("heightInput"),
     radiusInput: document.getElementById("radiusInput"),
 
-    createShape() {
-        let width = parseFloat(this.widthInput.value);
-        let height = parseFloat(this.heightInput.value);
-        let radius = parseFloat(this.radiusInput.value);
+    createShape(options = {}) {
+        let width = options.width ?? parseFloat(this.widthInput.value);
+        let height = options.height ?? parseFloat(this.heightInput.value);
+        let radius = options.radius ?? parseFloat(this.radiusInput.value);
+        let positionX = options.positionX ?? 0;
+        let positionY = options.positionY ?? 0;
 
         switch(this.shapeDropdown.value) {
             default:
             case "rectangle":
-                return Bodies.rectangle(0, 0, width, height);
+                return Bodies.rectangle(positionX, positionY, width, height);
             case "circle":
-                return Bodies.circle(0, 0, radius);
+                return Bodies.circle(positionX, positionY, radius);
         }
     },
 
@@ -39,6 +41,7 @@ const sidebar = {
             case "add":
                 this.showSetting(this.brushDropdown);
                 this.showSetting(this.shapeDropdown);
+                if(this.brushDropdown.value != "click") break;
                 if(this.shapeDropdown.value == "circle") this.showSetting(this.radiusInput);
                 else {
                     this.showSetting(this.widthInput);
