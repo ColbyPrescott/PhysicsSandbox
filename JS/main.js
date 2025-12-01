@@ -6,15 +6,6 @@ var ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true });
 // add all of the bodies to the world
 Composite.add(engine.world, [boxA, boxB, ground]);
 
-
-// render.canvas.addEventListener("mousedown", (event) => {
-//     let width = 40;
-//     let height = 40;
-//     let rectangle = Bodies.rectangle(Input.mouse.worldX, Input.mouse.worldY, width, height);
-//     Composite.add(engine.world, rectangle);
-// });
-
-
 function frame() {
 
 }

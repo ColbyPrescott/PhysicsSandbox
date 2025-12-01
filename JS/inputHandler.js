@@ -1,17 +1,16 @@
 class BasicInput {
     constructor() {
-        this.pressTime = 0;
-        this.releaseTime = 0;
+        this.startTime = 0;
+        this.endTime = 0;
     }
 
     get isHeld() {
-        return this.releaseTime < this.pressTime;
+        return this.endTime < this.startTime;
     }
 }
 
-class ScreenInput extends BasicInput {
+class ScreenPosition {
     constructor() {
-        super()
         this.pageX = 0;
         this.pageY = 0;
         this.worldX = 0;
@@ -27,6 +26,15 @@ class ScreenInput extends BasicInput {
     }
 }
 
+class ScreenInput extends BasicInput {
+    constructor() {
+        super();
+        this.currentPosition = new ScreenPosition();
+        this.startPosition = new ScreenPosition();
+        this.endPosition = new ScreenPosition();
+    }
+}
+
 
 
 const Input = {
@@ -39,16 +47,18 @@ const Input = {
 
 render.canvas.addEventListener("mousedown", e => {
     Input.mouse.pressTime = Date.now();
-    Input.mouse.setPositionFromEvent(e);
+    Input.mouse.startPosition.setPositionFromEvent(e);
+    Input.mouse.currentPosition.setPositionFromEvent(e);
 });
 
 render.canvas.addEventListener("mousemove", e => {
-    Input.mouse.setPositionFromEvent(e);
+    Input.mouse.currentPosition.setPositionFromEvent(e);
 });
 
 render.canvas.addEventListener("mouseup", e => {
     Input.mouse.releaseTime = Date.now();
-    Input.mouse.setPositionFromEvent(e);
+    Input.mouse.endPosition.setPositionFromEvent(e);
+    Input.mouse.currentPosition.setPositionFromEvent(e);
 });
 
 
