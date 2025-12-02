@@ -37,6 +37,11 @@ class ScreenInput extends BasicInput {
         this.startPosition = new ScreenPosition();
         this.endPosition = new ScreenPosition();
     }
+
+    get pageDeltaX() { return this.currentPosition.pageX - this.startPosition.pageX; }
+    get pageDeltaY() { return this.currentPosition.pageY - this.startPosition.pageY; }
+    get worldDeltaX() { return this.currentPosition.worldX - this.startPosition.worldX; }
+    get worldDeltaY() { return this.currentPosition.worldY - this.startPosition.worldY; }
 }
 
 

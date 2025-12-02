@@ -18,8 +18,8 @@ render.canvas.addEventListener("mouseup", e => {
 
     if(sidebar.brushDropdown.value != "twoCorners") return;
 
-    let width = Math.abs(Input.mouse.endPosition.worldX - Input.mouse.startPosition.worldX);
-    let height = Math.abs(Input.mouse.endPosition.worldY - Input.mouse.startPosition.worldY);
+    let width = Math.abs(Input.mouse.worldDeltaX);
+    let height = Math.abs(Input.mouse.worldDeltaY);
     if(width < 1 || height < 1) return;
     let shape;
 
