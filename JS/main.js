@@ -6,8 +6,12 @@ var ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true });
 // add all of the bodies to the world
 Composite.add(engine.world, [boxA, boxB, ground]);
 
-function frame() {
+function preFrame() {
+    
+}
 
+function postFrame() {
+    
 }
 
 function main() {
@@ -18,4 +22,5 @@ function main() {
 }
 
 main();
-Events.on(runner, "beforeTick", frame);
+Events.on(runner, "beforeTick", preFrame);
+Events.on(runner, "afterTick", postFrame);
