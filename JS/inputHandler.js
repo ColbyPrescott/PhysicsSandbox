@@ -46,7 +46,7 @@ const Input = {
 
 
 render.canvas.addEventListener("mousedown", e => {
-    Input.mouse.pressTime = Date.now();
+    Input.mouse.startTime = Date.now();
     Input.mouse.startPosition.setPositionFromEvent(e);
     Input.mouse.currentPosition.setPositionFromEvent(e);
 });
@@ -56,7 +56,7 @@ render.canvas.addEventListener("mousemove", e => {
 });
 
 render.canvas.addEventListener("mouseup", e => {
-    Input.mouse.releaseTime = Date.now();
+    Input.mouse.endTime = Date.now();
     Input.mouse.endPosition.setPositionFromEvent(e);
     Input.mouse.currentPosition.setPositionFromEvent(e);
 });
@@ -64,10 +64,10 @@ render.canvas.addEventListener("mouseup", e => {
 
 document.addEventListener("keydown", e => {
     Input.keys[e.key] = Input.keys[e.key] || new BasicInput();
-    Input.keys[e.key].pressTime = Date.now();
+    Input.keys[e.key].startTime = Date.now();
 });
 
 document.addEventListener("keyup", e => {
     if(!Input.keys.hasOwnProperty(e.key)) return;
-    Input.keys[e.key].releaseTime = Date.now();
+    Input.keys[e.key].endTime = Date.now();
 });
