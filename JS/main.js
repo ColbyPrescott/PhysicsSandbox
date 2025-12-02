@@ -11,7 +11,7 @@ function preFrame() {
 }
 
 function postFrame() {
-    
+    drawDragOverlay();
 }
 
 function main() {
