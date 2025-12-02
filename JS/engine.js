@@ -12,7 +12,8 @@ const render = Render.create({
     canvas: document.getElementById("mainCanvas"),
     engine: engine,
     options: {
-        hasBounds: true
+        hasBounds: true,
+        showDebug: true
     }
 });
 
