@@ -13,14 +13,18 @@ class ScreenPosition {
     constructor() {
         this.pageX = 0;
         this.pageY = 0;
+        this.canvasX = 0;
+        this.canvasY = 0;
         this.worldX = 0;
         this.worldY = 0;
     }
 
     setPositionFromEvent(e) {
+        const canvasBounds = render.canvas.getBoundingClientRect();
         this.pageX = e.pageX;
         this.pageY = e.pageY;
-        const canvasBounds = render.canvas.getBoundingClientRect();
+        this.canvasX = e.pageX - canvasBounds.x;
+        this.canvasY = e.pageY - canvasBounds.y;
         this.worldX = map(e.pageX, canvasBounds.x, canvasBounds.x + canvasBounds.width, render.bounds.min.x, render.bounds.max.x);
         this.worldY = map(e.pageY, canvasBounds.y, canvasBounds.y + canvasBounds.height, render.bounds.min.y, render.bounds.max.y);
     }
