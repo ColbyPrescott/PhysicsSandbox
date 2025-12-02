@@ -6,6 +6,7 @@ const sidebar = {
     widthInput: document.getElementById("widthInput"),
     heightInput: document.getElementById("heightInput"),
     radiusInput: document.getElementById("radiusInput"),
+    staticCheckbox: document.getElementById("staticCheckbox"),
 
     createShape(options = {}) {
         let width = options.width ?? parseFloat(this.widthInput.value);
@@ -13,13 +14,14 @@ const sidebar = {
         let radius = options.radius ?? parseFloat(this.radiusInput.value);
         let positionX = options.positionX ?? 0;
         let positionY = options.positionY ?? 0;
+        let isStatic = options.static ?? this.staticCheckbox.checked;
 
         switch(this.shapeDropdown.value) {
             default:
             case "rectangle":
-                return Bodies.rectangle(positionX, positionY, width, height);
+                return Bodies.rectangle(positionX, positionY, width, height, {isStatic: isStatic});
             case "circle":
-                return Bodies.circle(positionX, positionY, radius);
+                return Bodies.circle(positionX, positionY, radius, {isStatic: isStatic});
         }
     },
 
@@ -41,6 +43,7 @@ const sidebar = {
             case "add":
                 this.showSetting(this.brushDropdown);
                 this.showSetting(this.shapeDropdown);
+                this.showSetting(this.staticCheckbox);
                 if(this.brushDropdown.value != "click") break;
                 if(this.shapeDropdown.value == "circle") this.showSetting(this.radiusInput);
                 else {
