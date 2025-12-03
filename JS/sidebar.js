@@ -35,10 +35,17 @@ const sidebar = {
         elem.closest(".setting").classList.add("visible");
     },
 
+    showDropdownOptions(elem, optionValues) {
+        this.showSetting(elem);
+        for(let option of elem.options) {
+            option.hidden = !optionValues.includes(option.value);
+        }
+    },
+
     resetVisibility() {
-        Array.from(this.sidebar.getElementsByClassName("defaultHidden")).forEach(elem => {
+        for(let elem of this.sidebar.getElementsByClassName("defaultHidden")) {
             elem.classList.remove("visible");
-        });
+        }
     },
 
     rebuild() {
@@ -47,7 +54,7 @@ const sidebar = {
         this.showSetting(this.actionDropdown);
         switch(this.actionDropdown.value) {
             case "add":
-                this.showSetting(this.brushDropdown);
+                this.showDropdownOptions(this.brushDropdown, ["click", "twoCorners", "hold"]);
                 if(this.brushDropdown.value == "hold") 
                     this.showSetting(this.rateInput);
                 this.showSetting(this.shapeDropdown);
