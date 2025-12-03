@@ -68,6 +68,11 @@
                 <label for="static" title="Remove all physics">Static: </label>
                 <input name="static" type="checkbox" id="staticCheckbox" value="false" min="0">
             </div>
+
+            <div class="setting defaultHidden">
+                <label for="friction">Friction: </label>
+                <input name="friction" type="number" id="frictionInput" value="0.1" min="0" max="1" step="0.05">
+            </div>
         </span>
 
         <script src="./JS/matter.min.js"></script>

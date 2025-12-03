@@ -8,21 +8,26 @@ const sidebar = {
     heightInput: document.getElementById("heightInput"),
     radiusInput: document.getElementById("radiusInput"),
     staticCheckbox: document.getElementById("staticCheckbox"),
+    frictionInput: document.getElementById("frictionInput"),
 
     createShape(options = {}) {
-        let width = options.width ?? parseFloat(this.widthInput.value);
-        let height = options.height ?? parseFloat(this.heightInput.value);
-        let radius = options.radius ?? parseFloat(this.radiusInput.value);
-        let positionX = options.positionX ?? 0;
-        let positionY = options.positionY ?? 0;
-        let isStatic = options.static ?? this.staticCheckbox.checked;
+        const width = options.width ?? parseFloat(this.widthInput.value);
+        const height = options.height ?? parseFloat(this.heightInput.value);
+        const radius = options.radius ?? parseFloat(this.radiusInput.value);
+        const positionX = options.positionX ?? 0;
+        const positionY = options.positionY ?? 0;
+
+        const bodyOptions = {
+            isStatic: options.static ?? this.staticCheckbox.checked,
+            friction: options.friction ?? parseFloat(this.frictionInput.value)
+        };
 
         switch(this.shapeDropdown.value) {
             default:
             case "rectangle":
-                return Bodies.rectangle(positionX, positionY, width, height, {isStatic: isStatic});
+                return Bodies.rectangle(positionX, positionY, width, height, bodyOptions);
             case "circle":
-                return Bodies.circle(positionX, positionY, radius, {isStatic: isStatic});
+                return Bodies.circle(positionX, positionY, radius, bodyOptions);
         }
     },
 
@@ -43,15 +48,19 @@ const sidebar = {
         switch(this.actionDropdown.value) {
             case "add":
                 this.showSetting(this.brushDropdown);
-                if(this.brushDropdown.value == "hold") this.showSetting(this.rateInput);
+                if(this.brushDropdown.value == "hold") 
+                    this.showSetting(this.rateInput);
                 this.showSetting(this.shapeDropdown);
-                this.showSetting(this.staticCheckbox);
-                if(this.brushDropdown.value != "click" && this.brushDropdown.value != "hold") break;
-                if(this.shapeDropdown.value == "circle") this.showSetting(this.radiusInput);
-                else {
-                    this.showSetting(this.widthInput);
-                    this.showSetting(this.heightInput);
+                if(["click", "hold"].includes(this.brushDropdown.value)) {
+                    if(this.shapeDropdown.value == "circle") {
+                        this.showSetting(this.radiusInput);
+                    } else {
+                        this.showSetting(this.widthInput);
+                        this.showSetting(this.heightInput);
+                    }
                 }
+                this.showSetting(this.staticCheckbox);
+                this.showSetting(this.frictionInput);
                 break;
         }
     }
