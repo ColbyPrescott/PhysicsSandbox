@@ -48,14 +48,14 @@ class ScreenInput extends BasicInput {
 
 const Input = {
     mouse: new ScreenInput(),
-    // touches: [],
+    // additionalTouches: [],
     keys: {}
 };
 
 
 
 render.canvas.addEventListener("mousedown", e => {
-    Input.mouse.startTime = Date.now();
+    Input.mouse.startTime = performance.now();
     Input.mouse.startPosition.setPositionFromEvent(e);
     Input.mouse.currentPosition.setPositionFromEvent(e);
 });
@@ -65,7 +65,7 @@ render.canvas.addEventListener("mousemove", e => {
 });
 
 render.canvas.addEventListener("mouseup", e => {
-    Input.mouse.endTime = Date.now();
+    Input.mouse.endTime = performance.now();
     Input.mouse.endPosition.setPositionFromEvent(e);
     Input.mouse.currentPosition.setPositionFromEvent(e);
 });
@@ -73,10 +73,10 @@ render.canvas.addEventListener("mouseup", e => {
 
 document.addEventListener("keydown", e => {
     Input.keys[e.key] = Input.keys[e.key] || new BasicInput();
-    Input.keys[e.key].startTime = Date.now();
+    Input.keys[e.key].startTime = performance.now();
 });
 
 document.addEventListener("keyup", e => {
     if(!Input.keys.hasOwnProperty(e.key)) return;
-    Input.keys[e.key].endTime = Date.now();
+    Input.keys[e.key].endTime = performance.now();
 });
