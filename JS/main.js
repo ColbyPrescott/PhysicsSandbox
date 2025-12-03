@@ -6,8 +6,18 @@ var ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true });
 // add all of the bodies to the world
 Composite.add(engine.world, [boxA, boxB, ground]);
 
+const frame = {
+    tmpPreviousTime: performance.now() - 1000 / 60,
+    currentTime: performance.now(),
+    deltaTime: 1000 / 60
+};
+
 function preFrame() {
-    
+    frame.currentTime = performance.now();
+    frame.deltaTime = frame.currentTime - frame.tmpPreviousTime;
+    frame.tmpPreviousTime = frame.currentTime;
+
+    tickActionAdd();
 }
 
 function postFrame() {
