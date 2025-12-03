@@ -31,8 +31,14 @@
                 <select name="brush" id="brushDropdown" onchange="sidebar.rebuild()">
                     <option value="click">Click</option>
                     <option value="twoCorners">Two Corners</option>
+                    <option value="hold">Hold</option>
                     <option value="fill" disabled>Fill</option>
                 </select>
+            </div>
+
+            <div class="setting defaultHidden">
+                <label for="rate" title="Please be careful">Rate: </label>
+                <input name="rate" type="number" id="rateInput" value="3" min="0">
             </div>
 
             <div class="setting defaultHidden">

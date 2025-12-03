@@ -40,3 +40,23 @@ render.canvas.addEventListener("mouseup", e => {
 
     Composite.add(engine.world, shape);
 });
+
+function tickActionAdd() {
+    if(sidebar.brushDropdown.value != "hold") return;
+    if(!Input.mouse.isHeld) return;
+    if(sidebar.rateInput.value <= 0) return;
+
+    let ratePerMillisecond = sidebar.rateInput.value / 1000;
+    let delayMilliseconds = 1 / ratePerMillisecond;
+    let numShapes = Math.floor(frame.deltaTime / delayMilliseconds);
+    if((frame.currentTime - Input.mouse.startTime) % delayMilliseconds < frame.deltaTime % delayMilliseconds) numShapes++;
+
+    for(let i = 0; i < numShapes; i++) {
+        let shape = sidebar.createShape({
+            positionX: Input.mouse.currentPosition.worldX,
+            positionY: Input.mouse.currentPosition.worldY
+        });
+    
+        Composite.add(engine.world, shape);
+    }
+}

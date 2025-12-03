@@ -2,6 +2,7 @@ const sidebar = {
     sidebar: document.getElementById("sidebar"),
     actionDropdown: document.getElementById("actionDropdown"),
     brushDropdown: document.getElementById("brushDropdown"),
+    rateInput: document.getElementById("rateInput"),
     shapeDropdown: document.getElementById("shapeDropdown"),
     widthInput: document.getElementById("widthInput"),
     heightInput: document.getElementById("heightInput"),
@@ -42,9 +43,10 @@ const sidebar = {
         switch(this.actionDropdown.value) {
             case "add":
                 this.showSetting(this.brushDropdown);
+                if(this.brushDropdown.value == "hold") this.showSetting(this.rateInput);
                 this.showSetting(this.shapeDropdown);
                 this.showSetting(this.staticCheckbox);
-                if(this.brushDropdown.value != "click") break;
+                if(this.brushDropdown.value != "click" && this.brushDropdown.value != "hold") break;
                 if(this.shapeDropdown.value == "circle") this.showSetting(this.radiusInput);
                 else {
                     this.showSetting(this.widthInput);
