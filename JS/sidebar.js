@@ -72,7 +72,7 @@ const sidebar = {
                 break;
 
             case "remove":
-                this.showDropdownOptions(this.brushDropdown, ["click"]);
+                this.showDropdownOptions(this.brushDropdown, ["click", "hold"]);
         }
     }
 };

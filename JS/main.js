@@ -18,6 +18,7 @@ function preFrame() {
     frame.tmpPreviousTime = frame.currentTime;
 
     tickActionAdd();
+    tickActionRemove();
 }
 
 function postFrame() {
