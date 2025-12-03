@@ -2,6 +2,7 @@ render.canvas.addEventListener("mousedown", e => {
     Input.mouse.startPosition.setPositionFromEvent(e);
     Input.mouse.currentPosition.setPositionFromEvent(e);
 
+    if(sidebar.actionDropdown.value != "add") return;
     if(sidebar.brushDropdown.value != "click") return;
 
     let shape = sidebar.createShape({
@@ -16,6 +17,7 @@ render.canvas.addEventListener("mouseup", e => {
     Input.mouse.endPosition.setPositionFromEvent(e);
     Input.mouse.currentPosition.setPositionFromEvent(e);
 
+    if(sidebar.actionDropdown.value != "add") return;
     if(sidebar.brushDropdown.value != "twoCorners") return;
 
     let width = Math.abs(Input.mouse.worldDeltaX);
@@ -42,7 +44,9 @@ render.canvas.addEventListener("mouseup", e => {
 });
 
 function tickActionAdd() {
+    if(sidebar.actionDropdown.value != "add") return;
     if(sidebar.brushDropdown.value != "hold") return;
+    
     if(!Input.mouse.isHeld) return;
     if(sidebar.rateInput.value <= 0) return;
 

@@ -35,11 +35,12 @@ const sidebar = {
         elem.closest(".setting").classList.add("visible");
     },
 
-    showDropdownOptions(elem, optionValues) {
-        this.showSetting(elem);
-        for(let option of elem.options) {
+    showDropdownOptions(dropdown, optionValues) {
+        this.showSetting(dropdown);
+        for(let option of dropdown.options) {
             option.hidden = !optionValues.includes(option.value);
         }
+        if(!optionValues.includes(dropdown.value)) dropdown.value = optionValues[0];
     },
 
     resetVisibility() {
@@ -69,6 +70,9 @@ const sidebar = {
                 this.showSetting(this.staticCheckbox);
                 this.showSetting(this.frictionInput);
                 break;
+
+            case "remove":
+                this.showDropdownOptions(this.brushDropdown, ["click"]);
         }
     }
 };
