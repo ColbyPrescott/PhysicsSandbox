@@ -55,7 +55,7 @@ const sidebar = {
         this.showSetting(this.actionDropdown);
         switch(this.actionDropdown.value) {
             case "add":
-                this.showDropdownOptions(this.brushDropdown, ["click", "twoCorners", "hold"]);
+                this.showDropdownOptions(this.brushDropdown, ["click", "hold", "twoCorners"]);
                 if(this.brushDropdown.value == "hold") 
                     this.showSetting(this.rateInput);
                 this.showSetting(this.shapeDropdown);
@@ -72,7 +72,7 @@ const sidebar = {
                 break;
 
             case "remove":
-                this.showDropdownOptions(this.brushDropdown, ["click", "hold"]);
+                this.showDropdownOptions(this.brushDropdown, ["click", "hold", "twoCorners"]);
         }
     }
 };

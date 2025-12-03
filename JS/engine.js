@@ -1,6 +1,7 @@
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Bounds = Matter.Bounds;
+const Collision = Matter.Collision;
 const Composite = Matter.Composite;
 const Detector = Matter.Detector;
 const Engine = Matter.Engine;

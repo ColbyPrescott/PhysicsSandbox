@@ -8,7 +8,7 @@ function drawDragOverlay() {
     render.context.strokeStyle = "#bbbbbb";
     render.context.lineWidth = 2;
 
-    if(sidebar.shapeDropdown.value == "circle") {
+    if(sidebar.actionDropdown.value == "add" && sidebar.shapeDropdown.value == "circle") {
         render.context.beginPath();
         render.context.arc(
             Input.mouse.startPosition.canvasX,
