@@ -25,8 +25,11 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
-    font-size: 50px;
+    font-size: 45px;
+    font-family: "Tektur", sans-serif;
+    font-weight: 550;
     overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 .defaultHidden {
