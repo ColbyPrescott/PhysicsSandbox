@@ -22,6 +22,9 @@ const sidebar = {
             friction: options.friction ?? parseFloat(this.frictionInput.value)
         };
 
+        if(this.shapeDropdown.value == "circle" && radius < 1) return;
+        else if(width < 1 || height < 1) return;
+
         switch(this.shapeDropdown.value) {
             default:
             case "rectangle":

@@ -10,6 +10,8 @@ render.canvas.addEventListener("mousedown", e => {
         positionY: Input.mouse.currentPosition.worldY
     });
 
+    if(shape == null) return;
+
     Composite.add(engine.world, shape);
 });
 
@@ -40,6 +42,8 @@ render.canvas.addEventListener("mouseup", e => {
         });
     }
 
+    if(shape == null) return;
+
     Composite.add(engine.world, shape);
 });
 
@@ -60,6 +64,8 @@ function tickActionAdd() {
             positionX: Input.mouse.currentPosition.worldX,
             positionY: Input.mouse.currentPosition.worldY
         });
+
+        if(shape == null) return;
     
         Composite.add(engine.world, shape);
     }
