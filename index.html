@@ -22,60 +22,78 @@
             <p class="title">Physics Sandbox</p>
 
             <div class="setting defaultHidden">
-                <label for="action">Action: </label>
-                <select name="action" id="actionDropdown" onchange="sidebar.rebuild()">
-                    <option value="add">Add</option>
-                    <option value="remove" >Remove</option>
-                    <option value="pan" disabled>Pan</option>
-                    <option value="select" disabled>Select</option>
-                </select>
+                <span class="settingContainer">
+                    <label for="action">Action</label>
+                    <select name="action" id="actionDropdown" onchange="sidebar.rebuild()">
+                        <option value="add">Add</option>
+                        <option value="remove" >Remove</option>
+                        <option value="pan" disabled>Pan</option>
+                        <option value="select" disabled>Select</option>
+                    </select>
+                </span>
             </div>
 
             <div class="setting defaultHidden">
-                <label for="brush">Brush</label>
-                <select name="brush" id="brushDropdown" onchange="sidebar.rebuild()">
-                    <option value="click">Click</option>
-                    <option value="hold">Hold</option>
-                    <option value="twoCorners">Two Corners</option>
-                </select>
+                <span class="settingContainer">
+                    <label for="brush">Brush</label>
+                    <select name="brush" id="brushDropdown" onchange="sidebar.rebuild()">
+                        <option value="click">Click</option>
+                        <option value="hold">Hold</option>
+                        <option value="twoCorners">Two Corners</option>
+                    </select>
+                </span>
             </div>
 
             <div class="setting defaultHidden">
-                <label for="rate" title="Please be careful">Rate: </label>
-                <input name="rate" type="number" id="rateInput" placeholder="5" value="5" min="0">
+                <span class="settingContainer">
+                    <label for="rate" title="Please be careful">Rate</label>
+                    <input name="rate" type="number" id="rateInput" placeholder="5" value="5" min="0">
+                </span>
             </div>
 
             <div class="setting defaultHidden">
-                <label for="shape">Shape: </label>
-                <select name="shape" id="shapeDropdown" onchange="sidebar.rebuild()">
-                    <option value="rectangle">Rectangle</option>
-                    <option value="circle">Circle</option>
-                </select>
+                <span class="settingContainer">
+                    <label for="shape">Shape</label>
+                    <select name="shape" id="shapeDropdown" onchange="sidebar.rebuild()">
+                        <option value="rectangle">Rectangle</option>
+                        <option value="circle">Circle</option>
+                    </select>
+                </span>
             </div>
 
             <div class="setting defaultHidden">
-                <label for="width">Width: </label>
-                <input name="height" type="number" id="widthInput" placeholder="40" value="40" min="1">
+                <span class="settingContainer">
+                    <label for="width">Width</label>
+                    <input name="height" type="number" id="widthInput" placeholder="40" value="40" min="1">
+                </span>
             </div>
 
             <div class="setting defaultHidden">
-                <label for="height">Height: </label>
-                <input name="height" type="number" id="heightInput" placeholder="40" value="40" min="1">
+                <span class="settingContainer">
+                    <label for="height">Height</label>
+                    <input name="height" type="number" id="heightInput" placeholder="40" value="40" min="1">
+                </span>
             </div>
 
             <div class="setting defaultHidden">
-                <label for="radius">Radius: </label>
-                <input name="radius" type="number" id="radiusInput" placeholder="20" value="20" min="1">
+                <span class="settingContainer">
+                    <label for="radius">Radius</label>
+                    <input name="radius" type="number" id="radiusInput" placeholder="20" value="20" min="1">
+                </span>
             </div>
 
             <div class="setting defaultHidden">
-                <label for="static" title="Remove all physics">Static: </label>
-                <input name="static" type="checkbox" id="staticCheckbox" value="false" min="0">
+                <span class="settingContainer">
+                    <label for="static" title="Remove all physics">Static</label>
+                    <input name="static" type="checkbox" id="staticCheckbox" value="false" min="0">
+                </span>
             </div>
 
             <div class="setting defaultHidden">
-                <label for="friction">Friction: </label>
-                <input name="friction" type="number" id="frictionInput" placeholder="0.1" value="0.1" min="0" max="1" step="0.05">
+                <span class="settingContainer">
+                    <label for="friction">Friction</label>
+                    <input name="friction" type="number" id="frictionInput" placeholder="0.1" value="0.1" min="0" max="1" step="0.05">
+                </span>
             </div>
         </span>
 
