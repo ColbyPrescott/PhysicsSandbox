@@ -1,8 +1,8 @@
 render.canvas.addEventListener("wheel", (e) => {
     e.preventDefault();
 
-    let scaleFactor = 0.9;
-    if(e.wheelDeltaY < 0) scaleFactor = 1 / scaleFactor;
+    let scaleFactor = 1 + 0.001 * Math.abs(e.wheelDeltaY);
+    if(e.wheelDeltaY > 0) scaleFactor = 1 / scaleFactor;
 
     // Get current values
     Input.mouse.currentPosition.setPositionFromEvent(e);
