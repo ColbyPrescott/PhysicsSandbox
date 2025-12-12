@@ -55,6 +55,10 @@
     background-color: rgba(0, 0, 0, 0.25);
 }
 
+.setting:hover {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
 .settingContainer {
     display: flex;
     justify-content: space-between;
